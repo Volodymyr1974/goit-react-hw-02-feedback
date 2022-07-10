@@ -16,6 +16,7 @@ class App extends Component {
       [key]: prevState[key] + 1,
     }));
   };
+
   countTotalFeedback = () => Object.values(this.state).reduce(
     (total, ammount) => (total += ammount),
     0
@@ -25,7 +26,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
     const { good, neutral, bad } = this.state;
     const keys = Object.keys(this.state);
     return (
@@ -44,9 +44,6 @@ class App extends Component {
               bad={bad}
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()} />) :
-
-
-
             (<Notification message="There is no feedback"
             />)
           }
